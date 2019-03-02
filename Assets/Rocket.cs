@@ -28,11 +28,13 @@ public class Rocket : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.A))
         {
-            print("turning left");
+//  print ("turning left");
+            transform.Rotate(Vector3.forward*Time.deltaTime*50);
         }
         else if (Input.GetKey(KeyCode.D))
-            { 
-                print("turning right");
-            }
+            {
+            // print("turning right");
+            transform.Rotate(Vector3.back * Time.deltaTime*50);
+        }
     }
 }
