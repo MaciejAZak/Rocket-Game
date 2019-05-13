@@ -17,10 +17,11 @@ public class Rocket : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        ProcessInput();
-	}
+        Thrust();
+        Rotate();
+    }
 
-    private void ProcessInput()
+    private void Thrust()
     {
         if (Input.GetKey(KeyCode.Space))
         {
@@ -38,16 +39,23 @@ public class Rocket : MonoBehaviour {
             }
 
         }
+    }
+
+    private void Rotate()
+    {
+        rigidBody.freezeRotation = true;
 
         if (Input.GetKey(KeyCode.A))
         {
-//  print ("turning left");
-            transform.Rotate(Vector3.forward*Time.deltaTime*50);
+            //  print ("turning left");
+            transform.Rotate(Vector3.forward * Time.deltaTime * 50);
         }
         else if (Input.GetKey(KeyCode.D))
-            {
+        {
             // print("turning right");
-            transform.Rotate(Vector3.back * Time.deltaTime*50);
+            transform.Rotate(Vector3.back * Time.deltaTime * 50);
         }
+
+        rigidBody.freezeRotation = false;
     }
 }

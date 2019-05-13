@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 23974537207377652}
   - component: {fileID: 135742646998663632}
   m_Layer: 0
-  m_Name: Cone (1)
+  m_Name: Letf_eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 23686771230039340}
   - component: {fileID: 135062688074851342}
   m_Layer: 0
-  m_Name: Cone (2)
+  m_Name: Right_eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 23649114599998154}
   - component: {fileID: 135513952660617470}
   m_Layer: 0
-  m_Name: Cone
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -648,7 +648,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!65 &65672123259757256
 BoxCollider:
