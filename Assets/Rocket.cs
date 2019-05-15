@@ -22,6 +22,25 @@ public class Rocket : MonoBehaviour {
         Rotate();
     }
 
+     void OnCollisionEnter(Collision collision)
+    {
+        switch(collision.gameObject.tag)
+        {
+            case "Friendly":
+                print ("Friendly!");
+                break;
+            case "Fuel":
+                print ("Fuel");
+                break;
+            case "Finish":
+                print("you łin");
+                break;
+            default:
+                print("you Ded");
+                break;
+        }
+    }
+
     private void Thrust()
     {
         if (Input.GetKey(KeyCode.Space))

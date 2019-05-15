@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114082964244356108}
   m_Layer: 0
   m_Name: Rocket Ship
-  m_TagString: Untagged
+  m_TagString: Friendly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -768,7 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104749de2e42a7f4c9882623ede67f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rcsThrust: 50
+  rcsThrust: 100
   mainThrust: 20
 --- !u!114 &114664535227480838
 MonoBehaviour:
