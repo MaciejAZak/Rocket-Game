@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Rocket : MonoBehaviour {
 
@@ -34,9 +35,11 @@ public class Rocket : MonoBehaviour {
                 break;
             case "Finish":
                 print("you łin");
+                SceneManager.LoadScene(1);
                 break;
             default:
                 print("you Ded");
+                SceneManager.LoadScene(0);
                 break;
         }
     }
