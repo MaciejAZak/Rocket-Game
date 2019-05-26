@@ -10,6 +10,8 @@ public class Rocket : MonoBehaviour {
     [SerializeField] float mainThrust = 1f;
     Rigidbody rigidBody;
     AudioSource audioSource;
+    enum State { Alive, Dying, Transition }
+    State state = State.Alive;
 
 	// Use this for initialization
 	void Start () {
@@ -19,14 +21,18 @@ public class Rocket : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Thrust();
-        Rotate();
+        if (state == State.Alive) {
+            Thrust();
+            Rotate();
+        }
     }
 
      void OnCollisionEnter(Collision collision)
     {
-        switch(collision.gameObject.tag)
-        {
+        if (state != State.Alive){return;}
+
+            switch (collision.gameObject.tag) { 
+
             case "Friendly":
                 print ("Friendly!");
                 break;
@@ -34,14 +40,24 @@ public class Rocket : MonoBehaviour {
                 print ("Fuel");
                 break;
             case "Finish":
-                print("you łin");
-                SceneManager.LoadScene(1);
+                state = State.Transition;
+                Invoke("EnterNextLevel", 1f);
                 break;
             default:
-                print("you Ded");
-                SceneManager.LoadScene(0);
+                state = State.Dying;
+                Invoke("EnterFirstLevel", 1f);
                 break;
         }
+    }
+
+    private void EnterFirstLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void EnterNextLevel()
+    {
+        SceneManager.LoadScene(1); // todo: Load more levels (n+1) 
     }
 
     private void Thrust()
