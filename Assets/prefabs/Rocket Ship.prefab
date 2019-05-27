@@ -861,7 +861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rcsThrust: 100
-  mainThrust: 20
+  mainThrust: 2000
   mainEngine: {fileID: 8300000, guid: e5d465d77d33e784d936874611514226, type: 3}
   explosion: {fileID: 8300000, guid: 9a0641bd2b0b3bc4cab6d84e57ee7580, type: 3}
   finishedLevel: {fileID: 8300000, guid: 72c1841eec28c7545a1421b089947852, type: 3}
