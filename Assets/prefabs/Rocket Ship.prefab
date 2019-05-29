@@ -118,6 +118,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1545184561806426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4919515599256826}
+  - component: {fileID: 20093158572948432}
+  - component: {fileID: 81828913652262120}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1607488314825756
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,8 +351,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1018527416454074}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11, y: 2.18, z: -0.39}
+  m_LocalRotation: {x: -1, y: 0.0000001872535, z: 0, w: -0}
+  m_LocalPosition: {x: 16.69, y: 300, z: -0.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4015362736794846}
@@ -349,9 +366,10 @@ Transform:
   - {fileID: 4367006603127676}
   - {fileID: 4150673523659476}
   - {fileID: 4972781570258346}
+  - {fileID: 4919515599256826}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 180.00002}
 --- !u!4 &4789037933054684
 Transform:
   m_ObjectHideFlags: 1
@@ -378,6 +396,19 @@ Transform:
   m_Father: {fileID: 4729565646514744}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4919515599256826
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1545184561806426}
+  m_LocalRotation: {x: 0.7071068, y: -0.00000013240823, z: 0.00000013240823, w: -0.7071068}
+  m_LocalPosition: {x: 0.06, y: -5.74, z: -1.89}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4729565646514744}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4972781570258346
 Transform:
   m_ObjectHideFlags: 1
@@ -391,6 +422,46 @@ Transform:
   m_Father: {fileID: 4729565646514744}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &20093158572948432
+Camera:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1545184561806426}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.8584906, g: 0.10739732, b: 0.09313814, a: 0}
+  m_projectionMatrixMode: 1
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!23 &23073721553235598
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -754,6 +825,13 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!81 &81828913652262120
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1545184561806426}
+  m_Enabled: 1
 --- !u!82 &82880709705269866
 AudioSource:
   m_ObjectHideFlags: 1
@@ -857,7 +935,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1018527416454074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104749de2e42a7f4c9882623ede67f7b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e0eb36291a76d944a5696e2851cd462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rcsThrust: 100
@@ -865,6 +943,7 @@ MonoBehaviour:
   mainEngine: {fileID: 8300000, guid: e5d465d77d33e784d936874611514226, type: 3}
   explosion: {fileID: 8300000, guid: 9a0641bd2b0b3bc4cab6d84e57ee7580, type: 3}
   finishedLevel: {fileID: 8300000, guid: 72c1841eec28c7545a1421b089947852, type: 3}
+  LoadLevelDelay: 2
   ThrusterSmoke: {fileID: 198689349460415872}
   ParticleExplosion: {fileID: 198059981043683820}
   ParticleFinish: {fileID: 198255760437942800}

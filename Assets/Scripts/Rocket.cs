@@ -11,6 +11,7 @@ public class Rocket : MonoBehaviour {
     [SerializeField] AudioClip mainEngine;
     [SerializeField] AudioClip explosion;
     [SerializeField] AudioClip finishedLevel;
+    [SerializeField] float LoadLevelDelay = 2f;
 
     [SerializeField] ParticleSystem ThrusterSmoke;
     [SerializeField] ParticleSystem ParticleExplosion;
@@ -62,7 +63,7 @@ public class Rocket : MonoBehaviour {
         state = State.Dying;
         audioSource.Stop();
         audioSource.PlayOneShot(explosion);
-        Invoke("EnterFirstLevel", 3f);
+        Invoke("EnterFirstLevel", LoadLevelDelay);
         ParticleExplosion.Play();
     }
 
@@ -71,7 +72,7 @@ public class Rocket : MonoBehaviour {
         state = State.Transition;
         audioSource.Stop();
         audioSource.PlayOneShot(finishedLevel);
-        Invoke("EnterNextLevel", 3f);
+        Invoke("EnterNextLevel", LoadLevelDelay);
         ParticleFinish.Play();
     }
 
