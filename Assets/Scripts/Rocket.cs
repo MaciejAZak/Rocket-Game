@@ -21,7 +21,9 @@ public class Rocket : MonoBehaviour {
     Rigidbody rigidBody;
     AudioSource audioSource;
     enum State { Alive, Dying, Transition }
+    enum Colli { On, Off }
     State state = State.Alive;
+    Colli colli = Colli.On;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +36,26 @@ public class Rocket : MonoBehaviour {
         if (state == State.Alive) {
             RespondToThrustInput();
             RespondToRotateInput();
+        }
+        RespondToDebugKeys();
+    }
+
+    private void RespondToDebugKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            EnterNextLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (colli == Colli.On)
+            {
+                colli = Colli.Off;
+            }
+            else
+            {
+                colli = Colli.On;
+            }
         }
     }
 
@@ -60,11 +82,16 @@ public class Rocket : MonoBehaviour {
 
     private void StartDyingSequence()
     {
-        state = State.Dying;
-        audioSource.Stop();
-        audioSource.PlayOneShot(explosion);
-        Invoke("EnterFirstLevel", LoadLevelDelay);
-        ParticleExplosion.Play();
+        if (colli == Colli.On)
+        {
+            state = State.Dying;
+            audioSource.Stop();
+            audioSource.PlayOneShot(explosion);
+            Invoke("EnterFirstLevel", LoadLevelDelay);
+            ParticleExplosion.Play();
+        }
+        else
+            return;
     }
 
     private void StartWinSequence()
