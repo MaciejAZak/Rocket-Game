@@ -22,8 +22,8 @@ public class Rocket : MonoBehaviour {
     AudioSource audioSource;
     enum State { Alive, Dying, Transition }
     enum Colli { On, Off }
-    State state = State.Alive;
-    Colli colli = Colli.On;
+    [SerializeField] State state = State.Alive;
+    [SerializeField] Colli colli = Colli.On;
 
 	// Use this for initialization
 	void Start () {
@@ -37,7 +37,11 @@ public class Rocket : MonoBehaviour {
             RespondToThrustInput();
             RespondToRotateInput();
         }
-        RespondToDebugKeys();
+        if (Debug.isDebugBuild)
+        {
+            print("Developer Build");
+            RespondToDebugKeys();
+        }
     }
 
     private void RespondToDebugKeys()
@@ -87,7 +91,7 @@ public class Rocket : MonoBehaviour {
             state = State.Dying;
             audioSource.Stop();
             audioSource.PlayOneShot(explosion);
-            Invoke("EnterFirstLevel", LoadLevelDelay);
+            Invoke("ReloadCurrentLevel", LoadLevelDelay);
             ParticleExplosion.Play();
         }
         else
@@ -103,14 +107,23 @@ public class Rocket : MonoBehaviour {
         ParticleFinish.Play();
     }
 
-    private void EnterFirstLevel()
-    {
-        SceneManager.LoadScene(0);
-    }
 
     private void EnterNextLevel()
     {
-        SceneManager.LoadScene(1); // todo: Load more levels (n+1) 
+        int n = SceneManager.GetActiveScene().buildIndex;
+        int nextScene = n + 1;
+        if (nextScene < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextScene); // todo: Load more levels (n+1) 
+        }
+        else
+            SceneManager.LoadScene(0);
+    }
+
+    private void ReloadCurrentLevel()
+    {
+        int n = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(n);
     }
 
     private void RespondToThrustInput()
